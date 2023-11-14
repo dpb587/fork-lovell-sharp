@@ -47,6 +47,7 @@ struct MetadataBaton {
   size_t xmpLength;
   char *tifftagPhotoshop;
   size_t tifftagPhotoshopLength;
+  std::string imageDescription;
   std::string err;
 
   MetadataBaton():

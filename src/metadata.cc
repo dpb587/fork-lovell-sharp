@@ -131,6 +131,10 @@ class MetadataWorker : public Napi::AsyncWorker {
         memcpy(baton->tifftagPhotoshop, tifftagPhotoshop, tifftagPhotoshopLength);
         baton->tifftagPhotoshopLength = tifftagPhotoshopLength;
       }
+      // imageDescription
+      if (image.get_typeof(VIPS_META_IMAGEDESCRIPTION) == VIPS_TYPE_REF_STRING) {
+        baton->imageDescription = image.get_string(VIPS_META_IMAGEDESCRIPTION);
+      }
     }
 
     // Clean up
@@ -245,6 +249,9 @@ class MetadataWorker : public Napi::AsyncWorker {
         info.Set("tifftagPhotoshop",
           Napi::Buffer<char>::NewOrCopy(env, baton->tifftagPhotoshop,
             baton->tifftagPhotoshopLength, sharp::FreeCallback));
+      }
+      if (!baton->imageDescription.empty()) {
+        info.Set("imageDescription", baton->imageDescription);
       }
       Callback().Call(Receiver().Value(), { env.Null(), info });
     } else {

@@ -114,6 +114,7 @@ module.exports = {
   inputTiffUncompressed: getPath('uncompressed_tiff.tiff'), // https://code.google.com/archive/p/imagetestsuite/wikis/TIFFTestSuite.wiki file: 0c84d07e1b22b76f24cccc70d8788e4a.tif
   inputTiff8BitDepth: getPath('8bit_depth.tiff'),
   inputTifftagPhotoshop: getPath('tifftag-photoshop.tiff'), // https://github.com/lovell/sharp/issues/1600
+  inputTiffImageDescription: getPath('image-description.ome-Z2.tiff'), // CC BY 4.0, OME Consortium; https://downloads.openmicroscopy.org/images/OME-TIFF/2016-06/binaryonly/multifile-Z5.ome.tiff
 
   inputJp2: getPath('relax.jp2'), // https://www.fnordware.com/j2k/relax.jp2
   inputGif: getPath('Crash_test.gif'), // http://upload.wikimedia.org/wikipedia/commons/e/e3/Crash_test.gif

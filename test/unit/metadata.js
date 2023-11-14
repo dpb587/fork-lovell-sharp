@@ -801,6 +801,17 @@ describe('Image metadata', function () {
       })
   );
 
+  it('TIFF with image-description metadata', () =>
+    sharp(fixtures.inputTiffImageDescription)
+      .metadata()
+      .then(metadata => {
+        assert.strictEqual(metadata.format, 'tiff');
+        assert.strictEqual(typeof metadata.imageDescription, 'string');
+        assert.strictEqual(metadata.imageDescription.length, 813);
+        assert.strictEqual(metadata.imageDescription.indexOf('<?xml version="1.0" encoding="UTF-8"?><!-- '), 0);
+      })
+  );
+
   it('AVIF', async () => {
     const metadata = await sharp(fixtures.inputAvif).metadata();
     assert.deepStrictEqual(metadata, {
